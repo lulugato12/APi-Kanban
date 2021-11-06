@@ -9,7 +9,7 @@ const Role = sequelize.define('role', {
     primaryKey: true
   },
   name: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(80),
     allowNull: false
   }
 }, {freezeTableName: true});
