@@ -13,6 +13,7 @@ const drawer = require('./controllers/drawer.controller');
 const station = require('./controllers/station.controller');
 const run = require('./controllers/run.controller');
 const data = require('./controllers/data.controller');
+const flow = require('./controllers/flow.controller');
 
 /* App */
 const app = express();
@@ -64,6 +65,10 @@ app.get('/run/:id', run.getRunById)
 /* Data */
 app.get('/data', data.getDatas)
 app.get('/data/:id', data.getDataById)
+
+/* Flow */
+app.get('/flow', flow.getFlows)
+app.get('/flow/:id', flow.getFlowById)
 
 /* Port */
 app.listen(PORT, () => {
