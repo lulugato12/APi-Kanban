@@ -1,9 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {conect_db, close_db} = require('./helpers/server')
+
+/* Controllers */
 const role = require('./controllers/role.controller')
 const product = require('./controllers/product.controller')
 const user = require('./controllers/user.controller')
+const comment = require('./controllers/comment.controller')
+const kanban = require('./controllers/kanban.controller')
 
 /* App */
 const app = express();
@@ -27,6 +31,14 @@ app.get('/product/:id', product.getProductById)
 /* User */
 app.get('/user', user.getUsers)
 app.get('/user/:id', user.getUserById)
+
+/* Comment */
+app.get('/comment', comment.getComments)
+app.get('/comment/:id', comment.getCommentById)
+
+/* Kanban */
+app.get('/kanban', kanban.getKanban)
+app.get('/kanban/:id', kanban.getKanbanById)
 
 /* Port */
 app.listen(PORT, () => {
