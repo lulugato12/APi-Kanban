@@ -10,6 +10,7 @@ const comment = require('./controllers/comment.controller')
 const kanban = require('./controllers/kanban.controller')
 const layout = require('./controllers/layout.controller')
 const drawer = require('./controllers/drawer.controller')
+const station = require('./controllers/station.controller');
 
 /* App */
 const app = express();
@@ -49,6 +50,10 @@ app.get('/layout/:id', layout.getLayoutById)
 /* Drawer */
 app.get('/drawer', drawer.getDrawers)
 app.get('/drawer/:id', drawer.getDrawerById)
+
+/* Station */
+app.get('/station', station.getStations)
+app.get('/station/:id', station.getStationById)
 
 /* Port */
 app.listen(PORT, () => {
