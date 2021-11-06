@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {conect_db, close_db} = require('./helpers/server')
-const roles = require('controllers/role.controller')
+const role = require('./controllers/role.controller')
 
 /* App */
 const app = express();
