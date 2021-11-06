@@ -14,6 +14,7 @@ const station = require('./controllers/station.controller');
 const run = require('./controllers/run.controller');
 const data = require('./controllers/data.controller');
 const flow = require('./controllers/flow.controller');
+const comment_run = require('./controllers/comment_run.controller');
 
 /* App */
 const app = express();
@@ -69,6 +70,10 @@ app.get('/data/:id', data.getDataById)
 /* Flow */
 app.get('/flow', flow.getFlows)
 app.get('/flow/:id', flow.getFlowById)
+
+/* Comment_Run */
+app.get('/comment_run', comment_run.getComment_Run)
+app.get('/comment_run/:id', comment_run.getComment_RunById)
 
 /* Port */
 app.listen(PORT, () => {
