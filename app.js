@@ -1,16 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const {conect_db, close_db} = require('./helpers/server')
+const {conect_db, close_db} = require('./helpers/server');
 
 /* Controllers */
-const role = require('./controllers/role.controller')
-const product = require('./controllers/product.controller')
-const user = require('./controllers/user.controller')
-const comment = require('./controllers/comment.controller')
-const kanban = require('./controllers/kanban.controller')
-const layout = require('./controllers/layout.controller')
-const drawer = require('./controllers/drawer.controller')
+const role = require('./controllers/role.controller');
+const product = require('./controllers/product.controller');
+const user = require('./controllers/user.controller');
+const comment = require('./controllers/comment.controller');
+const kanban = require('./controllers/kanban.controller');
+const layout = require('./controllers/layout.controller');
+const drawer = require('./controllers/drawer.controller');
 const station = require('./controllers/station.controller');
+const run = require('./controllers/run.controller')
 
 /* App */
 const app = express();
@@ -54,6 +55,10 @@ app.get('/drawer/:id', drawer.getDrawerById)
 /* Station */
 app.get('/station', station.getStations)
 app.get('/station/:id', station.getStationById)
+
+/* Run */
+app.get('/run', run.getRuns)
+app.get('/run/:id', run.getRunById)
 
 /* Port */
 app.listen(PORT, () => {
