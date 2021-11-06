@@ -11,7 +11,8 @@ const kanban = require('./controllers/kanban.controller');
 const layout = require('./controllers/layout.controller');
 const drawer = require('./controllers/drawer.controller');
 const station = require('./controllers/station.controller');
-const run = require('./controllers/run.controller')
+const run = require('./controllers/run.controller');
+const data = require('./controllers/data.controller');
 
 /* App */
 const app = express();
@@ -59,6 +60,10 @@ app.get('/station/:id', station.getStationById)
 /* Run */
 app.get('/run', run.getRuns)
 app.get('/run/:id', run.getRunById)
+
+/* Data */
+app.get('/data', data.getDatas)
+app.get('/data/:id', data.getDataById)
 
 /* Port */
 app.listen(PORT, () => {
