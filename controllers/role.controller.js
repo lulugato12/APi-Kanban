@@ -9,9 +9,8 @@ function getRoles(req, res){
 }
 
 function getRoleById(req, res){
-  const {id} = req.body
+  const {id} = req.params
   console.log(`Getting role ${id}...`)
-
   Role.findByPk(id)
   .then((role) => res.status(200).send(role), (err) => res.status(500).send(err))
 
