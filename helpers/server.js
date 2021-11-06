@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize');
-const user = 'root';
-const pass = '';
+const user = 'postgres';
+const pass = 'Gatofeliz18';
 const host = 'localhost';
-const port = '80';
-const db = 'test';
+const port = '5432';
+const db = 'kanban';
 
 function conect_db(){
   const sequelize = new Sequelize(db, user, pass, {
