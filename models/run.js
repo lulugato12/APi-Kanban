@@ -1,0 +1,32 @@
+const {DataTypes, Deferrable} = require('sequelize');
+const {conect_db, close_db} = require('../helpers/server');
+const {Layout} = require('./layout');
+
+const sequelize = conect_db();
+
+const Run = sequelize.define('run', {
+  run_id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true
+  },
+  start_time: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  end_time: {
+    type: DataTypes.DATE
+  },
+  layout_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Layout,
+      key: 'layout_id',
+      deferrable: Deferrable.INITIALLY_IMMEDIATE
+    }
+  }
+}, {freezeTableName: true});
+
+module.exports = {
+  Run
+}
