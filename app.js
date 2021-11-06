@@ -8,6 +8,7 @@ const product = require('./controllers/product.controller')
 const user = require('./controllers/user.controller')
 const comment = require('./controllers/comment.controller')
 const kanban = require('./controllers/kanban.controller')
+const layout = require('./controllers/layout.controller')
 
 /* App */
 const app = express();
@@ -39,6 +40,10 @@ app.get('/comment/:id', comment.getCommentById)
 /* Kanban */
 app.get('/kanban', kanban.getKanban)
 app.get('/kanban/:id', kanban.getKanbanById)
+
+/* Layout */
+app.get('/layout', layout.getLayout)
+app.get('/layout/:id', layout.getLayoutById)
 
 /* Port */
 app.listen(PORT, () => {
