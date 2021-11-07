@@ -9,7 +9,7 @@ const {Product} = require('../models/product');
 
 /**
  * Return all the products from the database.
- * @return {array} - array that contains the jsons of each product.
+ * @return {array} array that contains the jsons of each product.
  * @require product
  */
 function getProducts(req, res){
