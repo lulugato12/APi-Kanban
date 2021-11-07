@@ -1,5 +1,7 @@
 /**
  * @module role
+ * @version 1.0
+ * @author Lourdes B. Cajica
  * PostgreSQL table: role
  */
 

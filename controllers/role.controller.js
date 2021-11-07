@@ -1,16 +1,16 @@
 /**
  * @module role.controller
- * @require role
+ * @version 1.0
+ * @author Lourdes B. Cajica
  * PostgreSQL table: role
  */
 
-const {DataTypes} = require('sequelize')
-const {conect_db, close_db} = require('../helpers/server')
 const {Role} = require('../models/role')
 
 /**
  * Return all the roles from the database.
  * @return {array} - array that contains the jsons of each role.
+ * @require role
  */
 function getRoles(req, res){
   console.log('Getting all roles...')
@@ -22,6 +22,7 @@ function getRoles(req, res){
  * Return an specific role from the database.
  * @param {integer} id - the id of the role.
  * @return {json} - the json of the role.
+ * @require role
  */
 function getRoleById(req, res){
   const {id} = req.params
@@ -32,11 +33,12 @@ function getRoleById(req, res){
 
 /**
  * Create a role.
- * @param {string} name - the name of the new role.
+ * @param {json} body - json with the following structure: {"name": string}.
  * @return {integer} - id of the new role.
+ * @require role
  */
 function createRole(req, res){
-  console.log(`Creating role with data: ${req.body}...`)
+  console.log(`Creating role with data: ${JSON.stringify(req.body)}...`)
   Role.create(req.body, {"fields": ["name"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
@@ -44,6 +46,7 @@ function createRole(req, res){
 /**
  * Detele an specific role from the database.
  * @param {integer} id - the id of the role.
+ * @require role
  */
 function deleteRole(req, res){
   const {id} = req.params
