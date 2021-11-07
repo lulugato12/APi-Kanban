@@ -5,12 +5,12 @@
  * PostgreSQL table: comment_run
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
-const {Comment} = require('./comment');
-const {Run} = require('./run');
+const {DataTypes, Deferrable} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
+const {Comment} = require('./comment')
+const {Run} = require('./run')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the comment_run model.
@@ -38,7 +38,7 @@ const Comment_Run = sequelize.define('comment_run', {
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Comment_Run

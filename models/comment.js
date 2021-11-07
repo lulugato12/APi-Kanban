@@ -4,11 +4,11 @@
  * PostgreSQL table: comment
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
+const {DataTypes, Deferrable} = require('sequelize')
 const {conect_db, close_db} = require('../helpers/server')
 const {User} = require('./user')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the comment model.
@@ -31,7 +31,7 @@ const Comment = sequelize.define('comment', {
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Comment

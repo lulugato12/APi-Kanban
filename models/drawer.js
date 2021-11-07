@@ -5,12 +5,12 @@
  * PostgreSQL table: drawer
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
+const {DataTypes, Deferrable} = require('sequelize')
 const {conect_db, close_db} = require('../helpers/server')
 const {Product} = require('./product')
-const {Kanban} = require('./kanban');
+const {Kanban} = require('./kanban')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the drawer model.
@@ -42,7 +42,7 @@ const Drawer = sequelize.define('drawer', {
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Drawer

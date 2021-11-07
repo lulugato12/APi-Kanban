@@ -3,10 +3,10 @@
  * PostgreSQL table: role
  */
 
-const {DataTypes} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
+const {DataTypes} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the role model.
@@ -20,7 +20,7 @@ const Role = sequelize.define('role', {
     type: DataTypes.STRING(80),
     allowNull: false
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Role

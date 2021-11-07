@@ -5,12 +5,12 @@
  * PostgreSQL table: data
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
-const {Run} = require('./run');
-const {Drawer} = require('./drawer');
+const {DataTypes, Deferrable} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
+const {Run} = require('./run')
+const {Drawer} = require('./drawer')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the data model.
@@ -42,7 +42,7 @@ const Data = sequelize.define('data', {
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Data

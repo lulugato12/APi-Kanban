@@ -1,18 +1,19 @@
 /**
  * @module role.controller
+ * @require role
  * PostgreSQL table: role
  */
 
-const {DataTypes} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
-const {Role} = require('../models/role');
+const {DataTypes} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
+const {Role} = require('../models/role')
 
 /**
  * Return all the roles from the database.
  * @return {array} - array that contains the jsons of each role.
  */
 function getRoles(req, res){
-  console.log('Getting all roles...');
+  console.log('Getting all roles...')
   Role.findAll()
   .then((roles) => res.status(200).send(roles), (err) => res.status(500).send(err))
 }
@@ -35,6 +36,7 @@ function getRoleById(req, res){
  * @return {integer} - id of the new role.
  */
 function createRole(req, res){
+  console.log(`Creating role with data: ${req.body}...`)
   Role.create(req.body, {"fields": ["name"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
@@ -45,12 +47,12 @@ function createRole(req, res){
  */
 function deleteRole(req, res){
   const {id} = req.params
+  console.log(`Deleting role ${id}...`)
   Role.destroy({
     where: {"role_id" : id}
   })
   .then(() => res.sendStatus(200), (err) => res.status(500).send(err))
 }
-
 
 module.exports = {
   getRoles,

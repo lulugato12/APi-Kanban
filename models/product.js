@@ -3,10 +3,10 @@
  * PostgreSQL table: product
  */
 
-const {DataTypes} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
+const {DataTypes} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the product model.
@@ -24,7 +24,7 @@ const Product = sequelize.define('product', {
     type: DataTypes.DECIMAL(5, 2),
     allowNull: false
   },
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Product

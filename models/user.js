@@ -4,7 +4,7 @@
  * PostgreSQL table: user_kanban
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
+const {DataTypes, Deferrable} = require('sequelize')
 const {conect_db, close_db} = require('../helpers/server')
 const {Role} = require('./role')
 
@@ -47,7 +47,7 @@ const User = sequelize.define('user_kanban', {
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   User

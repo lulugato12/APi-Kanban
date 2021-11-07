@@ -5,12 +5,12 @@
  * PostgreSQL table: station
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
-const {Drawer} = require('./drawer');
-const {User} = require('./user');
+const {DataTypes, Deferrable} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
+const {Drawer} = require('./drawer')
+const {User} = require('./user')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the station model.

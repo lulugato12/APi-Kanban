@@ -5,12 +5,12 @@
  * PostgreSQL table: flow
  */
 
-const {DataTypes, Deferrable} = require('sequelize');
-const {conect_db, close_db} = require('../helpers/server');
-const {Layout} = require('./layout');
-const {Station} = require('./station');
+const {DataTypes, Deferrable} = require('sequelize')
+const {conect_db, close_db} = require('../helpers/server')
+const {Layout} = require('./layout')
+const {Station} = require('./station')
 
-const sequelize = conect_db();
+const sequelize = conect_db()
 
 /**
  * Definition of the parameters of the flow model.
@@ -46,7 +46,7 @@ const Flow = sequelize.define('flow', {
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
-}, {freezeTableName: true});
+}, {freezeTableName: true})
 
 module.exports = {
   Flow
