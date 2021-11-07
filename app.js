@@ -1,27 +1,33 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const {conect_db, close_db} = require('./helpers/server');
+/**
+ * @module app
+ * @version 1.0
+ * @author Lourdes B. Cajica
+ */
+
+const express = require('express')
+const bodyParser = require('body-parser')
+const {conect_db, close_db} = require('./helpers/server')
 
 /* Controllers */
-const role = require('./controllers/role.controller');
-const product = require('./controllers/product.controller');
-const user = require('./controllers/user.controller');
-const comment = require('./controllers/comment.controller');
-const kanban = require('./controllers/kanban.controller');
-const layout = require('./controllers/layout.controller');
-const drawer = require('./controllers/drawer.controller');
-const station = require('./controllers/station.controller');
-const run = require('./controllers/run.controller');
-const data = require('./controllers/data.controller');
-const flow = require('./controllers/flow.controller');
-const comment_run = require('./controllers/comment_run.controller');
+const role = require('./controllers/role.controller')
+const product = require('./controllers/product.controller')
+const user = require('./controllers/user.controller')
+const comment = require('./controllers/comment.controller')
+const kanban = require('./controllers/kanban.controller')
+const layout = require('./controllers/layout.controller')
+const drawer = require('./controllers/drawer.controller')
+const station = require('./controllers/station.controller')
+const run = require('./controllers/run.controller')
+const data = require('./controllers/data.controller')
+const flow = require('./controllers/flow.controller')
+const comment_run = require('./controllers/comment_run.controller')
 
 /* App */
-const app = express();
-const PORT = 3000;
+const app = express()
+const PORT = 3000
 
 /* Middleware */
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 /*  Routes */
@@ -36,6 +42,9 @@ app.delete('/role/:id', role.deleteRole)
 /* Products */
 app.get('/product', product.getProducts)
 app.get('/product/:id', product.getProductById)
+app.post('/product', product.createProduct)
+app.put('/product/:id', product.updateProduct)
+app.delete('/product/:id', product.deleteProduct)
 
 /* User */
 app.get('/user', user.getUsers)
@@ -79,5 +88,5 @@ app.get('/comment_run/:id', comment_run.getComment_RunById)
 
 /* Port */
 app.listen(PORT, () => {
- console.log(`El servidor está inicializado en el puerto ${PORT}`);
-});
+ console.log(`El servidor está inicializado en el puerto ${PORT}`)
+})
