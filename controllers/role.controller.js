@@ -21,7 +21,7 @@ function getRoles(req, res){
 /**
  * Return an specific role from the database.
  * @param {integer} id - the id of the role.
- * @return {json} - the json of the role.
+ * @return {json} the json of the role.
  * @require role
  */
 function getRoleById(req, res){
@@ -34,7 +34,7 @@ function getRoleById(req, res){
 /**
  * Create a role.
  * @param {json} body - json with the following structure: {"name": string}.
- * @return {integer} - id of the new role.
+ * @return {integer} id of the new role.
  * @require role
  */
 function createRole(req, res){
@@ -52,7 +52,7 @@ function deleteRole(req, res){
   const {id} = req.params
   console.log(`Deleting role ${id}...`)
   Role.destroy({
-    where: {"role_id" : id}
+    "where": {"role_id" : id}
   })
   .then(() => res.sendStatus(200), (err) => res.status(500).send(err))
 }
