@@ -30,6 +30,8 @@ app.route('/').get((req, res) => res.send('DKS Base...'))
 /* Roles */
 app.get('/role', role.getRoles)
 app.get('/role/:id', role.getRoleById)
+app.post('/role', role.createRole)
+app.delete('/role/:id', role.deleteRole)
 
 /* Products */
 app.get('/product', product.getProducts)
