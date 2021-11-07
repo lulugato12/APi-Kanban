@@ -49,6 +49,9 @@ app.delete('/product/:id', product.deleteProduct)
 /* User */
 app.get('/user', user.getUsers)
 app.get('/user/:id', user.getUserById)
+app.post('/user', user.createUser)
+app.put('/user/:id', user.updateUser)
+app.delete('/user/:id', user.deleteUser)
 
 /* Comment */
 app.get('/comment', comment.getComments)
