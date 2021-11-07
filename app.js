@@ -55,8 +55,11 @@ app.get('/comment', comment.getComments)
 app.get('/comment/:id', comment.getCommentById)
 
 /* Kanban */
-app.get('/kanban', kanban.getKanban)
+app.get('/kanban', kanban.getKanbans)
 app.get('/kanban/:id', kanban.getKanbanById)
+app.post('/kanban', kanban.createKanban)
+app.put('/kanban/:id', kanban.updateKanban)
+app.delete('/kanban/:id', kanban.deleteKanban)
 
 /* Layout */
 app.get('/layout', layout.getLayout)
