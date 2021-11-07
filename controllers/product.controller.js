@@ -21,7 +21,7 @@ function getProducts(req, res){
 /**
  * Return an specific product from the database.
  * @param {integer} id - the id of the product.
- * @return {json} - the json of the product.
+ * @return {json} the json of the product.
  * @require product
  */
 function getProductById(req, res){
