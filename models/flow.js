@@ -1,3 +1,10 @@
+/**
+ * @module flow
+ * @require layout
+ * @require station
+ * PostgreSQL table: flow
+ */
+
 const {DataTypes, Deferrable} = require('sequelize');
 const {conect_db, close_db} = require('../helpers/server');
 const {Layout} = require('./layout');
@@ -5,6 +12,9 @@ const {Station} = require('./station');
 
 const sequelize = conect_db();
 
+/**
+ * Definition of the parameters of the flow model.
+ */
 const Flow = sequelize.define('flow', {
   flow_id: {
     type: DataTypes.INTEGER,

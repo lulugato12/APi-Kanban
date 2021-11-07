@@ -1,3 +1,10 @@
+/**
+ * @module data
+ * @require run
+ * @require drawer
+ * PostgreSQL table: data
+ */
+
 const {DataTypes, Deferrable} = require('sequelize');
 const {conect_db, close_db} = require('../helpers/server');
 const {Run} = require('./run');
@@ -5,6 +12,9 @@ const {Drawer} = require('./drawer');
 
 const sequelize = conect_db();
 
+/**
+ * Definition of the parameters of the data model.
+ */
 const Data = sequelize.define('data', {
   data_id: {
     type: DataTypes.INTEGER,

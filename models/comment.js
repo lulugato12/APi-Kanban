@@ -1,9 +1,18 @@
+/**
+ * @module comment
+ * @require user
+ * PostgreSQL table: comment
+ */
+
 const {DataTypes, Deferrable} = require('sequelize');
 const {conect_db, close_db} = require('../helpers/server')
 const {User} = require('./user')
 
 const sequelize = conect_db();
 
+/**
+ * Definition of the parameters of the comment model.
+ */
 const Comment = sequelize.define('comment', {
   comment_id: {
     type: DataTypes.INTEGER,

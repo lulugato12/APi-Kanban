@@ -1,9 +1,18 @@
+/**
+ * @module user
+ * @require role
+ * PostgreSQL table: user_kanban
+ */
+
 const {DataTypes, Deferrable} = require('sequelize');
 const {conect_db, close_db} = require('../helpers/server')
 const {Role} = require('./role')
 
 const sequelize = conect_db();
 
+/**
+ * Definition of the parameters of the user model.
+ */
 const User = sequelize.define('user_kanban', {
   user_id: {
     type: DataTypes.INTEGER,

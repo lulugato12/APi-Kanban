@@ -1,3 +1,10 @@
+/**
+ * @module station
+ * @require drawer
+ * @require user
+ * PostgreSQL table: station
+ */
+
 const {DataTypes, Deferrable} = require('sequelize');
 const {conect_db, close_db} = require('../helpers/server');
 const {Drawer} = require('./drawer');
@@ -5,6 +12,9 @@ const {User} = require('./user');
 
 const sequelize = conect_db();
 
+/**
+ * Definition of the parameters of the station model.
+ */
 const Station = sequelize.define('station', {
   station_id: {
     type: DataTypes.INTEGER,
