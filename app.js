@@ -99,6 +99,9 @@ app.get('/data/:id', data.getDataById)
 /* Flow */
 app.get('/flow', flow.getFlows)
 app.get('/flow/:id', flow.getFlowById)
+app.post('/flow', flow.createFlow)
+app.put('/flow/:id', flow.updateFlow)
+app.delete('/flow/:id', flow.deleteFlow)
 
 /* Comment_Run */
 app.get('/comment_run', comment_run.getComment_Run)
