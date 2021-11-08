@@ -18,13 +18,6 @@ const Run = sequelize.define('run', {
     type: DataTypes.INTEGER,
     primaryKey: true
   },
-  start_time: {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
-  end_time: {
-    type: DataTypes.DATE
-  },
   layout_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
