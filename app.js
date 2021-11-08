@@ -71,10 +71,16 @@ app.get('/layout/:id', layout.getLayoutById)
 /* Drawer */
 app.get('/drawer', drawer.getDrawers)
 app.get('/drawer/:id', drawer.getDrawerById)
+app.post('/drawer', drawer.createDrawer)
+app.put('/drawer/:id', drawer.updateDrawer)
+app.delete('/drawer/:id', drawer.deleteDrawer)
 
 /* Station */
 app.get('/station', station.getStations)
 app.get('/station/:id', station.getStationById)
+app.post('/station', station.createStation)
+app.put('/station/:id', station.updateStation)
+app.delete('/station/:id', station.deleteStation)
 
 /* Run */
 app.get('/run', run.getRuns)
