@@ -92,7 +92,6 @@ app.delete('/station/:id', station.deleteStation)
 app.get('/run', run.getRuns)
 app.get('/run/:id', run.getRunById)
 app.post('/run', run.createRun)
-app.put('/run/:id', run.updateRun)
 app.delete('/run/:id', run.deleteRun)
 
 /* Data */
@@ -103,7 +102,6 @@ app.get('/data/:id', data.getDataById)
 app.get('/flow', flow.getFlows)
 app.get('/flow/:id', flow.getFlowById)
 app.post('/flow', flow.createFlow)
-app.put('/flow/:id', flow.updateFlow)
 app.delete('/flow/:id', flow.deleteFlow)
 
 /* Comment_Run */

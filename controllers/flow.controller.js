@@ -44,23 +44,6 @@ function createFlow(req, res){
 }
 
 /**
- * Update the given attributes of a flow.
- * @param {integer} id - the id of the flow to be updated.
- * @param {json} body - json with at least one of the following attributes: {"first_id": integer, "layout_id": integer, "second_id": integer}.
- * @return {integer} number of rows affected.
- * @require flow
- */
-function updateFlow(req, res){
-  const {id} = req.params
-  console.log(`Creating flow ${id} with data: ${JSON.stringify(req.body)}...`)
-  Flow.update(req.body, {
-    "where": {"flow_id" : id},
-    "fields": Object.keys(req.body)
-  })
-  .then((rows) => res.status(200).send(rows), (err) => res.status(500).send(err))
-}
-
-/**
  * Detele a specific flow from the database.
  * @param {integer} id - the id of the flow.
  * @require flow
@@ -78,6 +61,5 @@ module.exports = {
   getFlows,
   getFlowById,
   createFlow,
-  updateFlow,
   deleteFlow
 }

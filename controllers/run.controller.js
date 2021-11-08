@@ -44,23 +44,6 @@ function createRun(req, res){
 }
 
 /**
- * Update the given attributes of a run.
- * @param {integer} id - the id of the run to be updated.
- * @param {json} body - json with at least one of the following attributes: {"layout_id": integer}.
- * @return {integer} number of rows affected.
- * @require run
- */
-function updateRun(req, res){
-  const {id} = req.params
-  console.log(`Creating run ${id} with data: ${JSON.stringify(req.body)}...`)
-  Run.update(req.body, {
-    "where": {"run_id" : id},
-    "fields": ["layout_id"]
-  })
-  .then((rows) => res.status(200).send(rows), (err) => res.status(500).send(err))
-}
-
-/**
  * Detele a specific run from the database.
  * @param {integer} id - the id of the run.
  * @require run
@@ -78,6 +61,5 @@ module.exports = {
   getRuns,
   getRunById,
   createRun,
-  updateRun,
   deleteRun
 }
