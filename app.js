@@ -94,7 +94,7 @@ app.post('/run', run.createRun)
 app.delete('/run/:id', run.deleteRun)
 
 /* Data */
-app.get('/data', data.getDatas)
+app.get('/data', data.getData)
 app.get('/data/:id', data.getDataById)
 
 /* Flow */
