@@ -68,8 +68,11 @@ app.put('/kanban/:id', kanban.updateKanban)
 app.delete('/kanban/:id', kanban.deleteKanban)
 
 /* Layout */
-app.get('/layout', layout.getLayout)
+app.get('/layout', layout.getLayouts)
 app.get('/layout/:id', layout.getLayoutById)
+app.post('/layout', layout.createLayout)
+app.put('/layout/:id', layout.updateLayout)
+app.delete('/layout/:id', layout.deleteLayout)
 
 /* Drawer */
 app.get('/drawer', drawer.getDrawers)
