@@ -7,6 +7,7 @@
 const {DataTypes, Deferrable} = require('sequelize')
 const {conect_db, close_db} = require('../helpers/server')
 const {User} = require('./user')
+const {Run} = require('./run')
 
 const sequelize = conect_db()
 
@@ -28,6 +29,15 @@ const Comment = sequelize.define('comment', {
     references: {
       model: User,
       key: 'user_id',
+      deferrable: Deferrable.INITIALLY_IMMEDIATE
+    }
+  },
+  run_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Run,
+      key: 'run_id',
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
   }
