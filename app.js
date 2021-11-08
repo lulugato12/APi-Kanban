@@ -56,6 +56,9 @@ app.delete('/user/:id', user.deleteUser)
 /* Comment */
 app.get('/comment', comment.getComments)
 app.get('/comment/:id', comment.getCommentById)
+app.post('/comment', comment.createComment)
+app.put('/comment/:id', comment.updateComment)
+app.delete('/comment/:id', comment.deleteComment)
 
 /* Kanban */
 app.get('/kanban', kanban.getKanbans)
