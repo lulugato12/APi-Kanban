@@ -33,20 +33,20 @@ function getCommentById(req, res){
 
 /**
  * Create a comment.
- * @param {json} body - json with the following structure: {"user_id": integer, "text": string}.
+ * @param {json} body - json with the following structure: {"user_id": integer, "text": string, "rund_id": integer}.
  * @return {integer} id of the new comment.
  * @require comment
  */
 function createComment(req, res){
   console.log(`Creating comment with data: ${JSON.stringify(req.body)}...`)
-  Comment.create(req.body, {"fields": ["user_id", "text"]})
+  Comment.create(req.body, {"fields": ["user_id", "text", "run_id"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
 
 /**
  * Update the given attributes of a comment.
  * @param {integer} id - the id of the comment to be updated.
- * @param {json} body - json with at least one of the following attributes: {"user_id": integer, "text": string}.
+ * @param {json} body - json with at least one of the following attributes: {"user_id": integer, "text": string, "run_id": integer}.
  * @return {integer} number of rows affected.
  * @require comment
  */
