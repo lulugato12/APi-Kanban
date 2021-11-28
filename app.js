@@ -23,7 +23,7 @@ const flow = require('./controllers/flow.controller')
 
 /* App */
 const app = express()
-const PORT = 3000
+const PORT = 3001
 
 /* Middleware */
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -31,6 +31,13 @@ app.use(bodyParser.json());
 
 /*  Routes */
 app.route('/').get((req, res) => res.send('DKS Base...'))
+
+app.use(function(req,res, next){
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    next();
+});
 
 /* Roles */
 app.get('/role', role.getRoles)
