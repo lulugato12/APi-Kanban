@@ -31,6 +31,8 @@ function getLayoutById(req, res){
   .then((layout) => res.status(200).send(layout), (err) => res.status(500).send(err))
 }
 
+
+
 /**
  * Create a layout.
  * @param {json} body - json with the following structure: {"name": string, "user_id": integer}.
