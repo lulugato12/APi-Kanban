@@ -41,6 +41,10 @@ const Drawer = sequelize.define('drawer', {
       key: 'kanban_id',
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
+  },
+  counter: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 }, {freezeTableName: true})
 

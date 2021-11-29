@@ -33,26 +33,26 @@ function getDrawerById(req, res){
 
 /**
  * Create a drawer.
- * @param {json} body - json with the following structure: {"product_id": integer, "capacity": float, "kanban_id": integer}.
+ * @param {json} body - json with the following structure: {"product_id": integer, "capacity": float, "kanban_id": integer, *["counter": integer]}.
  * @return {integer} id of the new drawer.
  * @require drawer
  */
 function createDrawer(req, res){
   console.log(`Creating drawer with data: ${JSON.stringify(req.body)}...`)
-  Drawer.create(req.body, {"fields": ["product_id", "capacity", "kanban_id"]})
+  Drawer.create(req.body, {"fields": Object.keys(req.body)})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
 
 /**
  * Update the given attributes of a drawer.
  * @param {integer} id - the id of the drawer to be updated.
- * @param {json} body - json with at least one of the following attributes: {"product_id": integer, "capacity": integer, "kanban_id": integer}.
+ * @param {json} body - json with at least one of the following attributes: {"product_id": integer, "capacity": integer, "kanban_id": integer, "counter": integer}.
  * @return {integer} number of rows affected.
  * @require drawer
  */
 function updateDrawer(req, res){
   const {id} = req.params
-  console.log(`Creating drawer ${id} with data: ${JSON.stringify(req.body)}...`)
+  console.log(`Updating drawer ${id} with data: ${JSON.stringify(req.body)}...`)
   Drawer.update(req.body, {
     "where": {"drawer_id" : id},
     "fields": Object.keys(req.body)
