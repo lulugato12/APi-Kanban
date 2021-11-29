@@ -24,6 +24,15 @@ const Product = sequelize.define('product', {
     type: DataTypes.DECIMAL(5, 2),
     allowNull: false
   },
+  demand: {
+    type: DataTypes.INTEGER
+  },
+  start_planned_date: {
+    type: DataTypes.DATE
+  },
+  end_planned_date: {
+    type: DataTypes.DATE
+  }
 }, {freezeTableName: true})
 
 module.exports = {

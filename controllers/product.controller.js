@@ -33,26 +33,26 @@ function getProductById(req, res){
 
 /**
  * Create a product.
- * @param {json} body - json with the following structure: {"name": string, "weight": float}.
+ * @param {json} body - json with the following structure: {"name": string, "weight": float, *["demand": integer, "start_planned_date": timestamp, "end_planned_date": timestamp]}.
  * @return {integer} id of the new product.
  * @require product
  */
 function createProduct(req, res){
   console.log(`Creating product with data: ${JSON.stringify(req.body)}...`)
-  Product.create(req.body, {"fields": ["name", "weight"]})
+  Product.create(req.body, {"fields": ["name", "weight", "demand", "start_planned_date", "end_planned_date"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
 
 /**
  * Update the given attributes of a product.
  * @param {integer} id - the id of the product to be updated.
- * @param {json} body - json with at least one of the following atributes: {"name": string, "weight": float}.
+ * @param {json} body - json with at least one of the following atributes: {"name": string, "weight": float, "demand": integer, "start_planned_date": timestamp, "end_planned_date": timestamp}.
  * @return {integer} number of rows affected.
  * @require product
  */
 function updateProduct(req, res){
   const {id} = req.params
-  console.log(`Creating product ${id} with data: ${JSON.stringify(req.body)}...`)
+  console.log(`Updating product ${id} with data: ${JSON.stringify(req.body)}...`)
   Product.update(req.body, {
     "where": {"product_id" : id},
     "fields": Object.keys(req.body)
