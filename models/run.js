@@ -26,6 +26,15 @@ const Run = sequelize.define('run', {
       key: 'layout_id',
       deferrable: Deferrable.INITIALLY_IMMEDIATE
     }
+  },
+  started: {
+    type: DataTypes.DATE
+  },
+  finished: {
+    type: DataTypes.DATE
+  },
+  pause_time: {
+    type: DataTypes.DECIMAL(10, 2)
   }
 }, {freezeTableName: true})
 

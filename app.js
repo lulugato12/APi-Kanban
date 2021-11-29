@@ -23,7 +23,7 @@ const flow = require('./controllers/flow.controller')
 
 /* App */
 const app = express()
-const PORT = 3001
+const PORT = 3000
 
 /* Middleware */
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -98,6 +98,7 @@ app.delete('/station/:id', station.deleteStation)
 app.get('/run', run.getRuns)
 app.get('/run/:id', run.getRunById)
 app.post('/run', run.createRun)
+app.put('/run/:id', run.updateRun)
 app.delete('/run/:id', run.deleteRun)
 
 /* Data */
