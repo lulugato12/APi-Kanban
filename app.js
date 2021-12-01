@@ -24,6 +24,7 @@ const cycle_time = require('./controllers/cycle_time.controller')
 const idle_time = require('./controllers/idle_time.controller')
 const lead_time = require('./controllers/lead_time.controller')
 const takt_time = require('./controllers/takt_time.controller')
+const transport_time = require('./controllers/transport_time.controller')
 
 /* App */
 const app = express()
@@ -134,6 +135,11 @@ app.post('/leadtime', lead_time.createLeadTime)
 app.get('/takttime', takt_time.getTaktTimes)
 app.get('/takttime/:id', takt_time.getTaktTimeById)
 app.post('/takttime', takt_time.createTaktTime)
+
+/* Transport Time */
+app.get('/transporttime', transport_time.getTransportTimes)
+app.get('/transporttime/:id', transport_time.getTransportTimeById)
+app.post('/transporttime', transport_time.createTransportTime)
 
 /* Port */
 app.listen(PORT, () => {
