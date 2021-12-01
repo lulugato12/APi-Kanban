@@ -21,6 +21,7 @@ const run = require('./controllers/run.controller')
 const data = require('./controllers/data.controller')
 const flow = require('./controllers/flow.controller')
 const cycle_time = require('./controllers/cycle_time.controller')
+const idle_time = require('./controllers/idle_time.controller')
 
 /* App */
 const app = express()
@@ -116,6 +117,11 @@ app.delete('/flow/:id', flow.deleteFlow)
 app.get('/cycletime', cycle_time.getCycleTimes)
 app.get('/cycletime/:id', cycle_time.getCycleTimeById)
 app.post('/cycletime', cycle_time.createCycleTime)
+
+/* Idle Time */
+app.get('/idletime', idle_time.getIdleTimes)
+app.get('/idletime/:id', idle_time.getIdleTimeById)
+app.post('/idletime', idle_time.createIdleTime)
 
 /* Port */
 app.listen(PORT, () => {
