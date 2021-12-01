@@ -22,6 +22,7 @@ const data = require('./controllers/data.controller')
 const flow = require('./controllers/flow.controller')
 const cycle_time = require('./controllers/cycle_time.controller')
 const idle_time = require('./controllers/idle_time.controller')
+const lead_time = require('./controllers/lead_time.controller')
 
 /* App */
 const app = express()
@@ -122,6 +123,11 @@ app.post('/cycletime', cycle_time.createCycleTime)
 app.get('/idletime', idle_time.getIdleTimes)
 app.get('/idletime/:id', idle_time.getIdleTimeById)
 app.post('/idletime', idle_time.createIdleTime)
+
+/* Lead Time */
+app.get('/leadtime', lead_time.getLeadTimes)
+app.get('/leadtime/:id', lead_time.getLeadTimeById)
+app.post('/leadtime', lead_time.createLeadTime)
 
 /* Port */
 app.listen(PORT, () => {
