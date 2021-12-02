@@ -31,6 +31,7 @@ const Flow = sequelize.define('flow', {
   },
   second_id: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     references: {
       model: Station,
       key: 'station_id',
