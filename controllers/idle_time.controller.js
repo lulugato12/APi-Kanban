@@ -33,13 +33,13 @@ function getIdleTimeById(req, res){
 
 /**
  * Create an idle time instance.
- * @param {json} body - json with the following structure: {"station_id": integer, "total": float}.
+ * @param {json} body - json with the following structure: {"station_id": integer, "total": float, "run_id": integer}.
  * @return {integer} id of the new idle time.
  * @require idle_time
  */
 function createIdleTime(req, res){
   console.log(`Creating idle time with data: ${JSON.stringify(req.body)}...`)
-  IdleTime.create(req.body, {"fields": ["station_id", "total"]})
+  IdleTime.create(req.body, {"fields": ["station_id", "total", "run_id"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
 

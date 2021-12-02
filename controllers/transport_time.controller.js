@@ -33,13 +33,13 @@ function getTransportTimeById(req, res){
 
 /**
  * Create a transport time instance.
- * @param {json} body - json with the following structure: {"station_id": integer, "total": float}.
+ * @param {json} body - json with the following structure: {"station_id": integer, "total": float, "run_id": integer}.
  * @return {integer} id of the new transport time.
  * @require transport_time
  */
 function createTransportTime(req, res){
   console.log(`Creating transport time with data: ${JSON.stringify(req.body)}...`)
-  TransportTime.create(req.body, {"fields": ["station_id", "total"]})
+  TransportTime.create(req.body, {"fields": ["station_id", "total", "run_id"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
 

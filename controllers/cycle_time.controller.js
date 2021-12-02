@@ -33,13 +33,13 @@ function getCycleTimeById(req, res){
 
 /**
  * Create a cycle time instance.
- * @param {json} body - json with the following structure: {"station_id": integer, "total": float}.
+ * @param {json} body - json with the following structure: {"station_id": integer, "total": float, "run_id": integer}.
  * @return {integer} id of the new cycle time.
  * @require cycle_time
  */
 function createCycleTime(req, res){
   console.log(`Creating cycle time with data: ${JSON.stringify(req.body)}...`)
-  CycleTime.create(req.body, {"fields": ["station_id", "total"]})
+  CycleTime.create(req.body, {"fields": ["station_id", "total", "run_id"]})
   .then((id) => res.status(201).send(id), (err) => res.status(500).send(err))
 }
 
